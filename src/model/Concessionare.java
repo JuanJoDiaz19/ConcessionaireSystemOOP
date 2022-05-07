@@ -190,7 +190,9 @@ public class Concessionare {
         vehicles.add(motorcycle);
         return vehicles.indexOf(motorcycle);        
     }
-
+    public double getSalePriceOfVehicle(int index) {
+        return vehicles.get(index).getSalePrice();
+    }
     public void addDocumentToVehicle(int index, double price, double coverageAmmount, int year) {
         SOAT soat = new SOAT(price, year, coverageAmmount);
         vehicles.get(index).addDocument(soat);
@@ -205,6 +207,12 @@ public class Concessionare {
         vehicles.get(index).addDocument(propertyCard);
     }
 
+    public boolean generateFinalPrice() {
+        for (int i = 0; i < vehicles.size(); i++) {
+            System.out.println("The final price of the vehicle: " + i + " is : " + vehicles.get(i).calculateSalePrice());
+        }
+        return true;
+    }
     public String showInformationVehicles() {
         String out = "";
         for (int i = 0; i < vehicles.size(); i++) {

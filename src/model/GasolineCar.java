@@ -15,7 +15,15 @@ public class GasolineCar extends Car{
     
     @Override
     public double calculateSalePrice() {
-        return 0;
+        double price= super.getBasePrice();
+        if (super.getTypeVehicle() == TypeVehicle.USED) {
+            price = super.getBasePrice()*0.9;
+        }
+        if (super.getSOAT() == null ||super.getSOAT().getYear() < 2022 ||super.getTechnicalMechanicalRevision() == null ||super.getTechnicalMechanicalRevision().getYear() < 2022 ) {
+            price += 500000;            
+        }
+        
+        return price;
     }
 
     @Override

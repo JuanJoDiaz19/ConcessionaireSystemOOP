@@ -43,6 +43,7 @@ public class Main {
                 option1();
                 break;
             case 2:
+                option2();
                 break;
             case 3: 
                 option3();   
@@ -110,10 +111,12 @@ public class Main {
                 sc.nextLine();
                 if (option == 1) {
                     int index = concessionare.addVehicle(basePrice, brand, model, cylinderCapacity, mileage, optionTypeVehicle, licensePlate, numberOfDoors, polarizedWindows, optionTypeCar, optionTypeCharger, batteryDuration);
-                    RegisterSoat(index);
-                    RegisterTechicalMechanicalRevision(index);
                     if (optionTypeVehicle == 2) {
+                        RegisterSoat(index);
+                        RegisterTechicalMechanicalRevision(index);
                         RegisterPropertyCard(index);
+                    } else if (optionTypeVehicle == 1) {
+                        concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
                     }
                 } else if (option == 2 ) {
                     System.out.println("Enter the capacity of the tank (galons): ");
@@ -122,10 +125,12 @@ public class Main {
                     System.out.println("Enter the option of type of the gasoline: 1) Extra 2) Regular 3) Diesel");
                     int optionTypeGasoline = sc.nextInt();
                     int index  = concessionare.addVehicle(basePrice, brand, model, cylinderCapacity, mileage, optionTypeVehicle, licensePlate, numberOfDoors, polarizedWindows, optionTypeCar, capacityOfTheTank, batteryDuration, optionTypeCharger, optionTypeGasoline);
-                    RegisterSoat(index);
-                    RegisterTechicalMechanicalRevision(index);
                     if (optionTypeVehicle == 2) {
+                        RegisterSoat(index);
+                        RegisterTechicalMechanicalRevision(index);
                         RegisterPropertyCard(index);
+                    }else if (optionTypeVehicle == 1) {
+                        concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
                     }
                 } 
             } else if ( option == 3 ) {
@@ -136,10 +141,13 @@ public class Main {
                 int optionTypeGasoline = sc.nextInt();
                 sc.nextLine();
                 int index = concessionare.addVehicle(basePrice, brand, model, cylinderCapacity, mileage, optionTypeVehicle, licensePlate, numberOfDoors, polarizedWindows, optionTypeCar, capacityOfTheTank, optionTypeGasoline);
-                RegisterSoat(index);
-                RegisterTechicalMechanicalRevision(index);
+                
                 if (optionTypeVehicle == 2) {
+                    RegisterSoat(index);
+                    RegisterTechicalMechanicalRevision(index);
                     RegisterPropertyCard(index);
+                } else if (optionTypeVehicle == 1) {
+                    concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
                 }
             } 
 
@@ -151,12 +159,23 @@ public class Main {
            System.out.println("Enter the type of motorcycle 1) Standard 2) Sport 3) Scooter 4) Cross");
            int optionTypeMotorcycle = sc.nextInt();
            int index = concessionare.addVehicle(basePrice, brand, model, cylinderCapacity, mileage, optionTypeVehicle, licensePlate, capacityOfTheTank, optionTypeMotorcycle);
-            RegisterSoat(index);
-            RegisterTechicalMechanicalRevision(index);
+            
             if (optionTypeVehicle == 2) {
+                RegisterSoat(index);
+                RegisterTechicalMechanicalRevision(index);
                 RegisterPropertyCard(index);
+            } else if (optionTypeVehicle == 1) {
+                concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
             }
         }
+    }
+
+    public void option2() {
+        System.out.println("Enter the id of the vehicle you want to calculate the sale price: ");
+        int index =sc.nextInt();
+        sc.nextLine();
+        System.out.println("The sale price of the vehicle is: " + concessionare.getSalePriceOfVehicle(index));
+         
     }
 
     public void RegisterSoat(int indexVehicle) {
@@ -199,6 +218,7 @@ public class Main {
 
     public void option3() {
         System.out.println("***** Information of the vehicles in the Concessionare *****");
+        
         System.out.println(concessionare.showInformationVehicles());
     }
 }

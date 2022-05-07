@@ -1,7 +1,5 @@
 package model;
 
-import java.time.Year;
-import java.util.Calendar;
 
 public class ElectricCar extends Car implements CalculateBatteryConsumption {
     private double batteryDuration;
@@ -17,11 +15,14 @@ public class ElectricCar extends Car implements CalculateBatteryConsumption {
 
     @Override
     public double calculateSalePrice() {
-
-        if (super.getDocuments().get(0).getYear() != Calendar.getInstance().get(Calendar.YEAR)) {
-            
+        double price= super.getBasePrice() * 1.20;
+        if (super.getTypeVehicle() == TypeVehicle.USED) {
+            price = super.getBasePrice()*0.9;
         }
-        return 0;
+        if (super.getSOAT() == null ||super.getSOAT().getYear() < 2022 ||super.getTechnicalMechanicalRevision() == null ||super.getTechnicalMechanicalRevision().getYear() < 2022 ) {
+            price += 500000;            
+        }
+        return price;
     }
     @Override
     public double calculateBatteryConsumption() {

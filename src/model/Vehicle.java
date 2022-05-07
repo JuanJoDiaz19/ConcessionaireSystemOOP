@@ -55,10 +55,26 @@ public abstract class Vehicle {
         }
         return out;
     }
+    
+    protected double getSalePrice() {
+        return salePrice;
+    }
+    protected double getBasePrice() {
+        return basePrice;
+    }
     protected TypeVehicle getTypeVehicle() {
         return typeVehicle;
     }
     protected double getCylinderCapacity() {
         return cylinderCapacity;
+    }
+    protected Document getSOAT() {
+        return documents[0];
+    }
+    protected Document getTechnicalMechanicalRevision() {
+        return documents[1];
+    }
+    protected Document getPropertyCard() {
+        return documents[2];
     }
 }

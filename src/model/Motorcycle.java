@@ -12,10 +12,7 @@ public class Motorcycle extends Vehicle implements CalculateGasolineConsumption 
         this.typeMotorcycle = typeMotorcycle;
         fuelConsumption = calculateGasolineConsumption();
     }
-    @Override
-    public double calculateSalePrice() {
-        return 0;
-    }
+    
     @Override
     public String toString() {
         String out = "\n***** Motorcycle *****\n\n"; 
@@ -33,9 +30,21 @@ public class Motorcycle extends Vehicle implements CalculateGasolineConsumption 
         return out;
         
     }
-
+    @Override
+    public double calculateSalePrice() {
+        double price= super.getBasePrice() * 1.04;
+        if (super.getTypeVehicle() == TypeVehicle.USED) {
+            price = super.getBasePrice()*0.98;
+        }   
+        if (super.getSOAT() == null ||super.getSOAT().getYear() < 2022 ||super.getTechnicalMechanicalRevision() == null ||super.getTechnicalMechanicalRevision().getYear() < 2022 ) {
+            price += 500000;            
+        }
+        
+        return price;
+    }
+    @Override
     public double calculateGasolineConsumption() {
-        return 0;
+        return capacityOfTheTank * (super.getCylinderCapacity()/150);
     }
     
 
