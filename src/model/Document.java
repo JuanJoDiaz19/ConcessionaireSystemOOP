@@ -22,6 +22,9 @@ public abstract class Document {
             }
         }
     }
+    protected int getYear() {
+        return year;
+    }
     public abstract int getCode();
 
     

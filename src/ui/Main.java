@@ -15,7 +15,7 @@ public class Main {
     
     public static void main(String[] args) {
         Main mainObject = new Main();
-        System.out.println("***** Welcome to the concessionare program ***** \n");
+        System.out.println("\n***** Welcome to the concessionare program *****");
         int option = 0;
         do {
             option = mainObject.showMenu();
@@ -24,7 +24,7 @@ public class Main {
     }
 
     public int showMenu() {
-        System.out.println("Select one of the options:\n" +
+        System.out.println("\nSelect one of the options:\n" +
                             "\n1) Register vehicle" + 
                             "\n2) Calculate the total price of a vehicle" +
                             "\n3) Generate reports with all vehicle data (including total sale price)" +
@@ -44,7 +44,8 @@ public class Main {
                 break;
             case 2:
                 break;
-            case 3:    
+            case 3: 
+                option3();   
                 break;
             case 4:    
                 break;
@@ -108,7 +109,7 @@ public class Main {
                 int optionTypeCharger = sc.nextInt();
                 sc.nextLine();
                 if (option == 1) {
-                    int index = concessionare.addVehicle(basePrice, brand, model, cylinderCapacity, mileage, optionTypeVehicle, licensePlate, numberOfDoors, polarizedWindows, optionTypeCar, batteryDuration, optionTypeCharger);
+                    int index = concessionare.addVehicle(basePrice, brand, model, cylinderCapacity, mileage, optionTypeVehicle, licensePlate, numberOfDoors, polarizedWindows, optionTypeCar, optionTypeCharger, batteryDuration);
                     RegisterSoat(index);
                     RegisterTechicalMechanicalRevision(index);
                     if (optionTypeVehicle == 2) {
@@ -143,7 +144,7 @@ public class Main {
             } 
 
         } else if (option == 4) {
-           System.out.println("\n***** Information of the motorcylce *****\n"); 
+           System.out.println("\n***** Information of the motorcycle *****\n"); 
            System.out.println("Enter the capacity of the tank (galons)");
            double capacityOfTheTank = sc.nextDouble();
            sc.nextLine();
@@ -194,5 +195,10 @@ public class Main {
         int year = sc.nextInt();
         sc.nextLine();
         concessionare.addDocumentToVehicle(indexOfVehicle, price, year);
+    }
+
+    public void option3() {
+        System.out.println("***** Information of the vehicles in the Concessionare *****");
+        System.out.println(concessionare.showInformationVehicles());
     }
 }

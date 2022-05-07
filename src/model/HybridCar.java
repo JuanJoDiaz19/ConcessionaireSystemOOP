@@ -27,7 +27,7 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
 
     @Override
     public String toString() {
-        String out = "";
+        String out = "\n***** Hybrid car *****\n\n";
         out += super.toString();
         out += "\nCapacity of the tank (gasoline): " + capacityOfTheTank+ "\nFuel consumption: "+ fuelConsumption + "\nBattery duration : " +
                 batteryDuration + "\nBattery consumption: "+ batteryConsumption ;
@@ -47,11 +47,17 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
     }
 
     public double calculateBatteryConsumption() {
+        double out;
+        if (typeCharger == TypeCharger.FAST) {
+            out = batteryDuration * (super.getCylinderCapacity()/200);  
+        } else if (typeCharger == TypeCharger.NORMAL) {
+            out = (batteryDuration+7) * (super.getCylinderCapacity()/200);
+        }
         return 0;
     }
 
     public double calculateGasolineConsumption() {
-        return 0;
+        return capacityOfTheTank *(super.getCylinderCapacity()/150);
     }
 
 

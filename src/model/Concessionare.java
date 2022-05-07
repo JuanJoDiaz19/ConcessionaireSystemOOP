@@ -10,8 +10,8 @@ public class Concessionare {
         parkingLot = new ParkingLot();
     }
 
-    // Method for adding a electric car
-    public int addVehicle(double basePrice, String brand, String model, double cylinderCapacity, double mileage, int optionTypeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, int optionTypeCar, double batteryDuration, int optionTypeCharger, double batteryConsumption) {
+    /**This is the method for adding an electric car  */
+    public int addVehicle(double basePrice, String brand, String model, double cylinderCapacity, double mileage, int optionTypeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, int optionTypeCar, int optionTypeCharger, double batteryDuration) {
         TypeVehicle typeVehicle;
         switch (optionTypeVehicle) {
             case 1:
@@ -52,7 +52,7 @@ public class Concessionare {
         vehicles.add(electricCar); 
         return vehicles.indexOf(electricCar);
     }
-    // Method for adding a hybrid car
+    /**This is the method for adding an hybrid car  */
     public int addVehicle(double basePrice, String brand, String model, double cylinderCapacity, double mileage, int optionTypeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, int optionTypeCar, double capacityOfTheTank, double batteryDuration, int optionTypeCharger, int optionTypeGasoline){
         TypeVehicle typeVehicle;
         switch (optionTypeVehicle) {
@@ -109,7 +109,7 @@ public class Concessionare {
         vehicles.add(hybridCar);
         return vehicles.indexOf(hybridCar);
     }
-    // Method for adding a gasoline car
+    /**This is the method for adding a gas car  */
     public int addVehicle(double basePrice, String brand, String model, double cylinderCapacity, double mileage,int optionTypeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, int optionTypeCar, double capacityOfTheTank, int optionTypeGasoline) {
         TypeVehicle typeVehicle;
         switch (optionTypeVehicle) {
@@ -154,7 +154,7 @@ public class Concessionare {
         vehicles.add(gasolineCar);
         return vehicles.indexOf(gasolineCar);
     }
-    // Method for adding a motorcycle 
+    /**This is the method for adding a motorcycle  */
     public int addVehicle(double basePrice, String brand, String model, double cylinderCapacity, double mileage, int optionTypeVehicle, String licensePlate, double capacityOfTheTank, int optionTypeMotorcycle) {
         TypeVehicle typeVehicle;
         switch (optionTypeVehicle) {
@@ -190,15 +190,27 @@ public class Concessionare {
         vehicles.add(motorcycle);
         return vehicles.indexOf(motorcycle);        
     }
+
     public void addDocumentToVehicle(int index, double price, double coverageAmmount, int year) {
-        int soat = 0;
-        vehicles.get(index).addDocument(price, year, coverageAmmount, soat);
+        SOAT soat = new SOAT(price, year, coverageAmmount);
+        vehicles.get(index).addDocument(soat);
     }
 
     public void addDocumentToVehicle(int index, double price, int year, double gasLevel) {
-        vehicles.get(index).addDocument(price, year, gasLevel);
+        MechanicalTechnicalRevision mechanicalTechnicalRevision = new MechanicalTechnicalRevision(price, year, gasLevel);
+        vehicles.get(index).addDocument(mechanicalTechnicalRevision);
     }
     public void addDocumentToVehicle(int index, double price, int year) {
-        vehicles.get(index).addDocument(price, year);
+        PropertyCard propertyCard = new PropertyCard(price, year);
+        vehicles.get(index).addDocument(propertyCard);
+    }
+
+    public String showInformationVehicles() {
+        String out = "";
+        for (int i = 0; i < vehicles.size(); i++) {
+            out += "\nInformation vehicle: " + (i+1) + "\n";
+            out+= vehicles.get(i).toString();
+        }
+        return out;
     }
 }

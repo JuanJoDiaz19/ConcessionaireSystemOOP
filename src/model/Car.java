@@ -18,14 +18,14 @@ public abstract class Car extends Vehicle {
         out += super.toString();
         out += "\nNumber of doors: " + numberOfDoors;
         if (polarizedWindows) {
-            out += "Polarized windows: True";
+            out += "\nPolarized windows: True";
         } else {
-            out += "Polarized windows: False";
+            out += "\nPolarized windows: False";
         }
         if (typeCar == TypeCar.SEDAN) {
-            out += "Type car: Sedan"; 
+            out += "\nType car: Sedan"; 
         } else if (typeCar == TypeCar.PICKUP_TRUCK) {
-            out += "Type car: Pickup truck";
+            out += "\nType car: Pickup truck";
         }
         return out;
     }

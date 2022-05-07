@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 public abstract class Vehicle {
     private double basePrice;
     private double salePrice;
@@ -11,11 +9,11 @@ public abstract class Vehicle {
     private double mileage;
     private String licensePlate;
     private TypeVehicle typeVehicle;
-    private ArrayList<Document> documents;
+    private Document[] documents;
 
     //Constructor when is a used car
     public Vehicle(double basePrice, String brand, String model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate) {
-        documents = new ArrayList<Document>();
+        documents = new Document[3];
         this.basePrice = basePrice;
         this.salePrice = calculateSalePrice();
         this.brand = brand;
@@ -25,33 +23,42 @@ public abstract class Vehicle {
         this.licensePlate = licensePlate;
         this.typeVehicle = typeVehicle;
     }
-
     public abstract double calculateSalePrice(); 
 
-    public boolean addDocument(double price, int year, double coverageAmmount, int soat) {
-        documents.add(new SOAT(price, year, coverageAmmount));
-        return true;
-
-    }
-    public boolean addDocument(double price, int year, double gasLevel) {
-        documents.add(new MechanicalTechnicalRevision(price, year, gasLevel));
+    /**With soat */
+    public boolean addDocument(SOAT document) {
+        documents[0]= document;
         return true;
     }
-    public boolean addDocument(double price, int year){
-        documents.add(new PropertyCard(price, year));
+    /**With Mechanical technical revision*/
+    public boolean addDocument(MechanicalTechnicalRevision document) {
+        documents[1]= document;
         return true;
     }
-
+    /**With property card*/
+    public boolean addDocument(PropertyCard document) {
+        documents[2]= document;
+        return true;
+    }
     @Override
     public String toString() {
         String out = "";
         out += "Base price: " + basePrice + "\nSale price: " + salePrice + "\nBrand: " + brand + "\nModel: " + model + 
-        "\nCylinder capacity: " + cylinderCapacity + "\nMileage: " + mileage + "\nLicense plate" + licensePlate;
+        "\nCylinder capacity: " + cylinderCapacity + "\nMileage: " + mileage;
+        if (licensePlate!= null) {
+            out +="\nLicense plate: " + licensePlate;
+        }
         if (typeVehicle == TypeVehicle.NEW) {
             out+= "\nType of the vehicle: New";
         } else if (typeVehicle == TypeVehicle.USED) {
             out += "\nType of the vehicle: Used";
         }
         return out;
+    }
+    protected TypeVehicle getTypeVehicle() {
+        return typeVehicle;
+    }
+    protected double getCylinderCapacity() {
+        return cylinderCapacity;
     }
 }

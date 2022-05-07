@@ -20,7 +20,8 @@ public class GasolineCar extends Car{
 
     @Override
     public String toString() {
-        String out = "";
+        String out = "\n***** Gasoline car *****\n\n";
+        out+= super.toString();
         out += "\nCapacity of the tank (gasoline): " + capacityOfTheTank+ "\nFuel consumption: "+ fuelConsumption;
         if (typeGasoline == TypeGasoline.EXTRA) {
             out += "\nType gasoline: Extra";
@@ -34,7 +35,7 @@ public class GasolineCar extends Car{
     }
 
     public double calculateGasolineConsumption() {
-        return 0;
+        return capacityOfTheTank*(super.getCylinderCapacity()/150);
     }
 
 

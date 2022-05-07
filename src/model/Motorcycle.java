@@ -18,7 +18,8 @@ public class Motorcycle extends Vehicle implements CalculateGasolineConsumption 
     }
     @Override
     public String toString() {
-        String out = "";
+        String out = "\n***** Motorcycle *****\n\n"; 
+        out+= super.toString();
         out += "\nCapacity of the tank (gasoline): " + capacityOfTheTank+ "\nFuel consumption: "+ fuelConsumption;
         if (typeMotorcycle == TypeMotorcycle.STANDARD) {
             out+= "\nType of the vehicle: Standard";
