@@ -181,7 +181,7 @@ public class Main {
         System.out.println("Enter the id of the vehicle you want to calculate the sale price: ");
         int index =sc.nextInt();
         sc.nextLine();
-        System.out.println("The sale price of the vehicle is: " + concessionare.getSalePriceOfVehicle(index));
+        System.out.println(concessionare.getSalePriceOfVehicle(index));
          
     }
 

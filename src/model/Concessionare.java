@@ -194,9 +194,7 @@ public class Concessionare {
         vehicles.add(motorcycle);
         return vehicles.indexOf(motorcycle);        
     }
-    public double getSalePriceOfVehicle(int index) {
-        return vehicles.get(index).getSalePrice();
-    }
+    
     public void addDocumentToVehicle(int index, double price, double coverageAmmount, int year) {
         SOAT soat = new SOAT(price, year, coverageAmmount);
         vehicles.get(index).addDocument(soat);
@@ -211,12 +209,16 @@ public class Concessionare {
         vehicles.get(index).addDocument(propertyCard);
     }
 
-    public boolean generateFinalPrice() {
-        for (int i = 0; i < vehicles.size(); i++) {
-            System.out.println("The final price of the vehicle: " + i + " is : " + vehicles.get(i).calculateSalePrice());
+    public String getSalePriceOfVehicle(int index) {
+        String out = "";
+        if (index < vehicles.size()) {
+            out += "The sale price of the vehicle is: " + vehicles.get(index).getSalePrice();
+        } else {
+           out +="\nSorry the id of the vehicle you are searching for isn't found :("; 
         }
-        return true;
-    }
+        return out;
+    } 
+    /*
     public String showInformationVehicles() {
         System.out.println(vehicles.size()  );
         String out = "";
@@ -225,7 +227,7 @@ public class Concessionare {
             out+= vehicles.get(i).toString();
         }
         return out;
-    }
+    }*/
 
     public String showInformationByTypeOfVehicle(int i ) {
         String out = "\n";
@@ -265,11 +267,15 @@ public class Concessionare {
                 }
                 break;
         }
+
+        if (out.equals("\n")) {
+            out = "\nSorry there aren't vehicles with these characteristics :(";
+        }
         return out;
     }
 
     public String showInformationTypeOfFuel(int i) {
-        String out = "";
+        String out = "\n";
         for (int j = 0; j < vehicles.size(); j++) {
             if (vehicles.get(j) instanceof GasolineCar) {
                 switch (i) {
@@ -323,7 +329,9 @@ public class Concessionare {
                 }
             }
         }
-        
+        if (out.equals("\n")) {
+            out = "\nSorry there aren't vehicles with these characteristics :(";
+        }
         return out;
 
     }
@@ -347,6 +355,9 @@ public class Concessionare {
                     }
                 }
                 break;
+        }
+        if (out.equals("\n")) {
+            out = "\nSorry there aren't vehicles with these characteristics :(";
         }
         return out;
     }
