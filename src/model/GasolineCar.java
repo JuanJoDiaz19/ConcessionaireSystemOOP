@@ -41,6 +41,10 @@ public class GasolineCar extends Car{
         return out;
 
     }
+    
+    public TypeGasoline getTypeGasoline() {
+        return typeGasoline;
+    }
 
     public double calculateGasolineConsumption() {
         return capacityOfTheTank*(super.getCylinderCapacity()/150);

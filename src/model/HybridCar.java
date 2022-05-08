@@ -53,7 +53,11 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
         }
         return out;
     }
-
+    
+    public TypeGasoline getTypeGasoline() {
+        return typeGasoline;
+    }
+    
     public double calculateBatteryConsumption() {
         double out;
         if (typeCharger == TypeCharger.FAST) {

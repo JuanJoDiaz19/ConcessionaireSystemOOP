@@ -218,7 +218,30 @@ public class Main {
 
     public void option3() {
         System.out.println("***** Information of the vehicles in the Concessionare *****");
-        
-        System.out.println(concessionare.showInformationVehicles());
+        System.out.println("Enter the parameter you want to search:" +
+                            "\n1) Vehicle Type" +
+                            "\n2) Fuel Type" +
+                            "\n3) New / Used Car");
+        int option = sc.nextInt();
+        sc.nextLine();
+        switch (option) {
+            case 1:
+                System.out.println("Wich type of vehicle? " + "\n1) Electric car " + "\n2) Hybrid car "+ "\n3) Gasoline car" + "\n4) Motorcylce");
+                int i1 = sc.nextInt();
+                sc.nextLine();
+                System.out.println(concessionare.showInformatioByTypeOfVehicle(i1));
+                break;
+            case 2:
+                System.out.println("Wich type of fuel?" + "\n1) Extra" + "\n Regular " + "\nDiesel");
+                int i2= sc.nextInt();
+                sc.nextLine();
+                System.out.println(concessionare.showInformationTypeOfFuel(i2));
+                break;
+            case 3:  
+                System.out.println("Wich type ?" + "\n1) New" + "\n2) Used");
+                int i3 = sc.nextInt();
+                System.out.println(concessionare.showInformationUsedOrNew(i3));  
+                break;
+        }
     }
 }

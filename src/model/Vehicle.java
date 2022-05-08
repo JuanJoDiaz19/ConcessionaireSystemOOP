@@ -56,7 +56,7 @@ public abstract class Vehicle {
         return out;
     }
     
-    protected double getSalePrice() {
+    protected    double getSalePrice() {
         return salePrice;
     }
     protected double getBasePrice() {

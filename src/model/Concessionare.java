@@ -221,4 +221,101 @@ public class Concessionare {
         }
         return out;
     }
+
+    public String showInformatioByTypeOfVehicle(int i ) {
+        String out = "";
+        switch (i) {
+            //Case of the electric car
+            case 1:
+                for (int j = 0; j < vehicles.size(); j++) {
+                    if (vehicles.get(i) instanceof ElectricCar) {
+                        out += vehicles.toString();
+                    }
+                }
+                break;
+            //Case of the hybrid car
+            case 2:
+                for (int j = 0; j < vehicles.size(); j++) {
+                    if (vehicles.get(i) instanceof HybridCar) {
+                        out += vehicles.toString();
+                    }
+                }
+                break;
+            //Case of the gasoline car
+            case 3:  
+                for (int j = 0; j < vehicles.size(); j++) {
+                    if (vehicles.get(i) instanceof GasolineCar) {
+                        out += vehicles.toString();
+                    }
+                }
+                break;
+
+            //Case of the Motorcycle
+            case 4:  
+                for (int j = 0; j < vehicles.size(); j++) {
+                    if (vehicles.get(i) instanceof Motorcycle) {
+                        out += vehicles.toString();
+                    }
+                }
+                break;
+        }
+        return out;
+    }
+
+    public String showInformationTypeOfFuel(int i) {
+        String out = "";
+        for (int j = 0; j < vehicles.size(); j++) {
+            if (vehicles.get(i) instanceof GasolineCar || vehicles.get(i) instanceof HybridCar) {
+                switch (i) {
+                    //Case of the Gasoline car
+
+                    //Case extra
+                    case 1:
+                        if (((GasolineCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.EXTRA ||((HybridCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.EXTRA) {
+                           out += vehicles.get(i).toString(); 
+                        }
+                        break;
+                    //Case regular
+                    case 2:
+                    if (((GasolineCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.REGULAR ||((HybridCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.REGULAR) {
+                        out += vehicles.get(i).toString(); 
+                    }
+                    break;
+                        
+                    //Case Diesel
+                    case 3:
+                    if (((GasolineCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.DIESEL ||((HybridCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.DIESEL) {
+                        out += vehicles.get(i).toString(); 
+                    }
+                    break;
+                }
+            }
+        }
+        
+        return out;
+
+    }
+
+    public String showInformationUsedOrNew(int i) {
+        String out = "";
+        switch (i) {
+            //New car
+            case 1:
+                for (int j = 0; j < vehicles.size(); j++) {
+                    if (vehicles.get(i).getTypeVehicle()== TypeVehicle.NEW) {
+                        out += vehicles.get(i).toString();
+                    }
+                }
+                break;
+            //Used car
+            case 2:
+                for (int j = 0; j < vehicles.size(); j++) {
+                    if (vehicles.get(i).getTypeVehicle()== TypeVehicle.USED) {
+                        out += vehicles.get(i).toString();
+                    }
+                }
+                break;
+        }
+        return out;
+    }
 }
