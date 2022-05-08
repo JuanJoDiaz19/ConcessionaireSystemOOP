@@ -265,27 +265,28 @@ public class Concessionare {
     public String showInformationTypeOfFuel(int i) {
         String out = "";
         for (int j = 0; j < vehicles.size(); j++) {
-            if (vehicles.get(i) instanceof GasolineCar || vehicles.get(i) instanceof HybridCar) {
+            if (vehicles.get(j) instanceof GasolineCar || vehicles.get(j) instanceof HybridCar) {
                 switch (i) {
                     //Case of the Gasoline car
 
                     //Case extra
                     case 1:
-                        if (((GasolineCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.EXTRA ||((HybridCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.EXTRA) {
-                           out += vehicles.get(i).toString(); 
+                        if (((GasolineCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.EXTRA ||((HybridCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.EXTRA) {
+                           
+                            out += "Vehicle id:  "+ j + " \n"+ vehicles.get(i).toString(); 
                         }
                         break;
                     //Case regular
                     case 2:
-                    if (((GasolineCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.REGULAR ||((HybridCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.REGULAR) {
-                        out += vehicles.get(i).toString(); 
+                    if (((GasolineCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.REGULAR ||((HybridCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.REGULAR) {
+                        out += "Vehicle id:  "+ j + " \n"+ vehicles.get(i).toString(); 
                     }
                     break;
                         
                     //Case Diesel
                     case 3:
-                    if (((GasolineCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.DIESEL ||((HybridCar) vehicles.get(i)).getTypeGasoline() == TypeGasoline.DIESEL) {
-                        out += vehicles.get(i).toString(); 
+                    if (((GasolineCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.DIESEL ||((HybridCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.DIESEL) {
+                        out += "Vehicle id:  "+ j + " \n"+  vehicles.get(i).toString(); 
                     }
                     break;
                 }

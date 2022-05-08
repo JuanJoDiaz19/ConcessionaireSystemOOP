@@ -217,7 +217,6 @@ public class Main {
     }
 
     public void option3() {
-        System.out.println("***** Information of the vehicles in the Concessionare *****");
         System.out.println("Enter the parameter you want to search:" +
                             "\n1) Vehicle Type" +
                             "\n2) Fuel Type" +
@@ -229,6 +228,7 @@ public class Main {
                 System.out.println("Wich type of vehicle? " + "\n1) Electric car " + "\n2) Hybrid car "+ "\n3) Gasoline car" + "\n4) Motorcylce");
                 int i1 = sc.nextInt();
                 sc.nextLine();
+
                 System.out.println(concessionare.showInformatioByTypeOfVehicle(i1));
                 break;
             case 2:
