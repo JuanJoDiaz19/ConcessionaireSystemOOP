@@ -48,6 +48,7 @@ public class ElectricCar extends Car implements CalculateBatteryConsumption {
         }
         out+= "\nBattery duration: "+ batteryDuration;
         out += "\nBattery consumption (Kilowatts per km): "+ batteryConsumption;
+        out += "\n";
         return out;
     }
 

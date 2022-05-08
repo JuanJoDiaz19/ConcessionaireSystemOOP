@@ -42,7 +42,7 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
         if (typeCharger == TypeCharger.NORMAL) {
             out += "\nType charger: Normal";
         } else if (typeCharger == TypeCharger.FAST) {
-            out += "\nType charger Fast";
+            out += "\nType charger: Fast";
         }
         if (typeGasoline == TypeGasoline.EXTRA) {
             out += "\nType gasoline: Extra";
@@ -51,6 +51,7 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
         } else if (typeGasoline == TypeGasoline.DIESEL) {
             out += "\nType gasoline: Diesel ";
         }
+        out += "\n";
         return out;
     }
     

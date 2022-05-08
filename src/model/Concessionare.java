@@ -10,6 +10,10 @@ public class Concessionare {
         parkingLot = new ParkingLot();
     }
 
+    public Concessionare(ArrayList<Vehicle> vehicles){
+        this.vehicles = vehicles;
+    }
+
     /**This is the method for adding an electric car  */
     public int addVehicle(double basePrice, String brand, String model, double cylinderCapacity, double mileage, int optionTypeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, int optionTypeCar, int optionTypeCharger, double batteryDuration) {
         TypeVehicle typeVehicle;
@@ -214,6 +218,7 @@ public class Concessionare {
         return true;
     }
     public String showInformationVehicles() {
+        System.out.println(vehicles.size()  );
         String out = "";
         for (int i = 0; i < vehicles.size(); i++) {
             out += "\nInformation vehicle: " + (i+1) + "\n";
@@ -222,30 +227,31 @@ public class Concessionare {
         return out;
     }
 
-    public String showInformatioByTypeOfVehicle(int i ) {
-        String out = "";
+    public String showInformationByTypeOfVehicle(int i ) {
+        String out = "\n";
         switch (i) {
             //Case of the electric car
             case 1:
                 for (int j = 0; j < vehicles.size(); j++) {
-                    if (vehicles.get(i) instanceof ElectricCar) {
-                        out += vehicles.toString();
+                    if (vehicles.get(j) instanceof ElectricCar) {
+                        out += "Vehicle Id: " + j + " \n" + vehicles.get(j).toString() +"\n" ;
+                        ;
                     }
                 }
                 break;
             //Case of the hybrid car
             case 2:
                 for (int j = 0; j < vehicles.size(); j++) {
-                    if (vehicles.get(i) instanceof HybridCar) {
-                        out += vehicles.toString();
+                    if (vehicles.get(j) instanceof HybridCar) {
+                        out += "Vehicle Id: " + j + " \n" +vehicles.get(j).toString();
                     }
                 }
                 break;
             //Case of the gasoline car
             case 3:  
                 for (int j = 0; j < vehicles.size(); j++) {
-                    if (vehicles.get(i) instanceof GasolineCar) {
-                        out += vehicles.toString();
+                    if (vehicles.get(j) instanceof GasolineCar) {
+                        out += "Vehicle Id: " + j + " \n" + vehicles.get(j).toString();
                     }
                 }
                 break;
@@ -253,8 +259,8 @@ public class Concessionare {
             //Case of the Motorcycle
             case 4:  
                 for (int j = 0; j < vehicles.size(); j++) {
-                    if (vehicles.get(i) instanceof Motorcycle) {
-                        out += vehicles.toString();
+                    if (vehicles.get(j) instanceof Motorcycle) {
+                        out += "Vehicle Id: " + j + " \n" +vehicles.get(j).toString();
                     }
                 }
                 break;
@@ -265,29 +271,54 @@ public class Concessionare {
     public String showInformationTypeOfFuel(int i) {
         String out = "";
         for (int j = 0; j < vehicles.size(); j++) {
-            if (vehicles.get(j) instanceof GasolineCar || vehicles.get(j) instanceof HybridCar) {
+            if (vehicles.get(j) instanceof GasolineCar) {
                 switch (i) {
                     //Case of the Gasoline car
 
                     //Case extra
                     case 1:
-                        if (((GasolineCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.EXTRA ||((HybridCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.EXTRA) {
+                        if (((GasolineCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.EXTRA) {
                            
-                            out += "Vehicle id:  "+ j + " \n"+ vehicles.get(i).toString(); 
-                        }
+                            out += "Vehicle Id:  "+ j + " \n"+ vehicles.get(j).toString() + "\n"; 
+                        } 
                         break;
                     //Case regular
                     case 2:
-                    if (((GasolineCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.REGULAR ||((HybridCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.REGULAR) {
-                        out += "Vehicle id:  "+ j + " \n"+ vehicles.get(i).toString(); 
+                    if (((GasolineCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.REGULAR ) {
+                        out += "Vehicle Id:  "+ j + " \n"+ vehicles.get(j).toString() + "\n"; 
                     }
                     break;
                         
                     //Case Diesel
                     case 3:
-                    if (((GasolineCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.DIESEL ||((HybridCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.DIESEL) {
-                        out += "Vehicle id:  "+ j + " \n"+  vehicles.get(i).toString(); 
+                    if (((GasolineCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.DIESEL) {
+                        out += "Vehicle Id:  "+ j + " \n"+  vehicles.get(j).toString() + "\n"; 
                     }
+                    break;
+                }
+            } else if (vehicles.get(j) instanceof HybridCar) {
+                switch (i) {
+                    //Case of the Gasoline car
+
+                    //Case extra
+                    case 1:
+                        if (((HybridCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.EXTRA) {
+                           
+                            out += "Vehicle Id:  "+ j + " \n"+ vehicles.get(j).toString() + "\n"; 
+                        } 
+                        break;
+                    //Case regular
+                    case 2:
+                        if (((HybridCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.REGULAR ) {
+                            out += "Vehicle Id:  "+ j + " \n"+ vehicles.get(j).toString() + "\n"; 
+                        }
+                    break;
+                        
+                    //Case Diesel
+                    case 3:
+                        if (((HybridCar) vehicles.get(j)).getTypeGasoline() == TypeGasoline.DIESEL) {
+                            out += "Vehicle Id:  "+ j + " \n"+  vehicles.get(j).toString() + "\n"; 
+                        }
                     break;
                 }
             }
@@ -298,21 +329,21 @@ public class Concessionare {
     }
 
     public String showInformationUsedOrNew(int i) {
-        String out = "";
+        String out = "\n";
         switch (i) {
             //New car
             case 1:
                 for (int j = 0; j < vehicles.size(); j++) {
-                    if (vehicles.get(i).getTypeVehicle()== TypeVehicle.NEW) {
-                        out += vehicles.get(i).toString();
+                    if (vehicles.get(j).getTypeVehicle()== TypeVehicle.NEW) {
+                        out += "Vehicle Id:  "+ j + " \n"+  vehicles.get(j).toString() + "\n";
                     }
                 }
                 break;
             //Used car
             case 2:
                 for (int j = 0; j < vehicles.size(); j++) {
-                    if (vehicles.get(i).getTypeVehicle()== TypeVehicle.USED) {
-                        out += vehicles.get(i).toString();
+                    if (vehicles.get(j).getTypeVehicle()== TypeVehicle.USED) {
+                        out += "Vehicle Id:  "+ j + " \n"+ vehicles.get(j).toString() + "\n";
                     }
                 }
                 break;

@@ -27,6 +27,7 @@ public class Motorcycle extends Vehicle implements CalculateGasolineConsumption 
         } else if (typeMotorcycle == TypeMotorcycle.CROOSS) {
             out+= "\nType of the vehicle: Cross";
         }
+        out += "\n";
         return out;
         
     }

@@ -38,6 +38,7 @@ public class GasolineCar extends Car{
         } else if (typeGasoline == TypeGasoline.DIESEL) {
             out += "\nType gasoline: Diesel ";
         }
+        out += "\n";
         return out;
 
     }

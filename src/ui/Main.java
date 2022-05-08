@@ -7,11 +7,18 @@ public class Main {
     private Concessionare concessionare;
     private Scanner sc;
 
+    /*For entering the test cases: */
 
+    public Main() {
+        InitModel initModel = new InitModel();
+        concessionare = new Concessionare(initModel.createVehicles());
+        sc = new Scanner(System.in);
+    }
+    /*
     public Main() {
         concessionare = new Concessionare();
         sc = new Scanner(System.in);
-    }
+    }*/
     
     public static void main(String[] args) {
         Main mainObject = new Main();
@@ -216,7 +223,9 @@ public class Main {
         concessionare.addDocumentToVehicle(indexOfVehicle, price, year);
     }
 
-    public void option3() {
+    public void option3() { 
+        //System.out.println(concessionare.showInformationVehicles());
+    
         System.out.println("Enter the parameter you want to search:" +
                             "\n1) Vehicle Type" +
                             "\n2) Fuel Type" +
@@ -228,11 +237,10 @@ public class Main {
                 System.out.println("Wich type of vehicle? " + "\n1) Electric car " + "\n2) Hybrid car "+ "\n3) Gasoline car" + "\n4) Motorcylce");
                 int i1 = sc.nextInt();
                 sc.nextLine();
-
-                System.out.println(concessionare.showInformatioByTypeOfVehicle(i1));
+                System.out.println(concessionare.showInformationByTypeOfVehicle(i1));
                 break;
             case 2:
-                System.out.println("Wich type of fuel?" + "\n1) Extra" + "\n Regular " + "\nDiesel");
+                System.out.println("Wich type of fuel?" + "\n1) Extra" + "\n2) Regular " + "\n3) Diesel");
                 int i2= sc.nextInt();
                 sc.nextLine();
                 System.out.println(concessionare.showInformationTypeOfFuel(i2));
