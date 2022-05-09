@@ -22,7 +22,6 @@ public class ElectricCar extends Car implements CalculateBatteryConsumption {
         if (super.getSOAT() == null ||super.getSOAT().getYear() < 2022 ||super.getTechnicalMechanicalRevision() == null ||super.getTechnicalMechanicalRevision().getYear() < 2022 ) {
             price += 500000;            
         }
-        super.setSalePrice(price);
         return price;
     }
     @Override

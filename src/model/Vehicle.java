@@ -58,9 +58,6 @@ public abstract class Vehicle {
         }
         return out;
     }
-    public void setSalePrice(double salePrice) {
-        this.salePrice = salePrice;
-    }
     protected double getSalePrice() {
         return salePrice;
     }
