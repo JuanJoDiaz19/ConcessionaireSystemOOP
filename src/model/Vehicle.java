@@ -15,7 +15,7 @@ public abstract class Vehicle {
     public Vehicle(double basePrice, String brand, String model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate) {
         documents = new Document[3];
         this.basePrice = basePrice;
-        this.salePrice = calculateSalePrice();
+        //this.salePrice = calculateSalePrice();
         this.brand = brand;
         this.model = model;
         this.cylinderCapacity = cylinderCapacity;
@@ -28,16 +28,19 @@ public abstract class Vehicle {
     /**With soat */
     public boolean addDocument(SOAT document) {
         documents[0]= document;
+        salePrice = calculateSalePrice();
         return true;
     }
     /**With Mechanical technical revision*/
     public boolean addDocument(MechanicalTechnicalRevision document) {
         documents[1]= document;
+        salePrice = calculateSalePrice();
         return true;
     }
     /**With property card*/
     public boolean addDocument(PropertyCard document) {
         documents[2]= document;
+        salePrice = calculateSalePrice();
         return true;
     }
     @Override
@@ -55,8 +58,10 @@ public abstract class Vehicle {
         }
         return out;
     }
-    
-    protected    double getSalePrice() {
+    public void setSalePrice(double salePrice) {
+        this.salePrice = salePrice;
+    }
+    protected double getSalePrice() {
         return salePrice;
     }
     protected double getBasePrice() {

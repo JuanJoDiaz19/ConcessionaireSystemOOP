@@ -17,12 +17,11 @@ public class GasolineCar extends Car{
     public double calculateSalePrice() {
         double price= super.getBasePrice();
         if (super.getTypeVehicle() == TypeVehicle.USED) {
-            price = super.getBasePrice()*0.9;
+            price -= super.getBasePrice()*0.1;
         }
-        if (super.getSOAT() == null ||super.getSOAT().getYear() < 2022 ||super.getTechnicalMechanicalRevision() == null ||super.getTechnicalMechanicalRevision().getYear() < 2022 ) {
+        if (super.getSOAT() == null || super.getSOAT().getYear() < 2022 || super.getTechnicalMechanicalRevision() == null || super.getTechnicalMechanicalRevision().getYear() < 2022 ) {
             price += 500000;            
         }
-        
         return price;
     }
 

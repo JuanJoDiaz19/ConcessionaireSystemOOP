@@ -17,11 +17,12 @@ public class ElectricCar extends Car implements CalculateBatteryConsumption {
     public double calculateSalePrice() {
         double price= super.getBasePrice() * 1.20;
         if (super.getTypeVehicle() == TypeVehicle.USED) {
-            price = super.getBasePrice()*0.9;
+            price -= super.getBasePrice()*0.1;
         }
         if (super.getSOAT() == null ||super.getSOAT().getYear() < 2022 ||super.getTechnicalMechanicalRevision() == null ||super.getTechnicalMechanicalRevision().getYear() < 2022 ) {
             price += 500000;            
         }
+        super.setSalePrice(price);
         return price;
     }
     @Override

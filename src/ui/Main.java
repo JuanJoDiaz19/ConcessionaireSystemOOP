@@ -24,6 +24,7 @@ public class Main {
         Main mainObject = new Main();
         System.out.println("\n***** Welcome to the concessionare program *****");
         int option = 0;
+        //System.out.println(mainObject.concessionare.showInformationVehicles());
         do {
             option = mainObject.showMenu();
             mainObject.excecuteOption(option);

@@ -24,12 +24,12 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
     public double calculateSalePrice() {
         double price= super.getBasePrice() * 1.15;
         if (super.getTypeVehicle() == TypeVehicle.USED) {
-            price = super.getBasePrice()*0.9;
+            price -= super.getBasePrice()*0.1;
         }
+        
         if (super.getSOAT() == null ||super.getSOAT().getYear() < 2022 ||super.getTechnicalMechanicalRevision() == null ||super.getTechnicalMechanicalRevision().getYear() < 2022 ) {
             price += 500000;            
         }
-        
         return price;
     }
 
@@ -60,17 +60,17 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
     }
     
     public double calculateBatteryConsumption() {
-        double out;
+        double out = 0;
         if (typeCharger == TypeCharger.FAST) {
             out = batteryDuration * (super.getCylinderCapacity()/200);  
         } else if (typeCharger == TypeCharger.NORMAL) {
             out = (batteryDuration+7) * (super.getCylinderCapacity()/200);
         }
-        return 0;
+        return out;
     }
 
     public double calculateGasolineConsumption() {
-        return capacityOfTheTank *(super.getCylinderCapacity()/150);
+        return capacityOfTheTank *(super.getCylinderCapacity()/180);
     }
 
 

@@ -198,8 +198,10 @@ public class Concessionare {
     public void addDocumentToVehicle(int index, double price, double coverageAmmount, int year) {
         SOAT soat = new SOAT(price, year, coverageAmmount);
         vehicles.get(index).addDocument(soat);
+        
+        
     }
-
+ 
     public void addDocumentToVehicle(int index, double price, int year, double gasLevel) {
         MechanicalTechnicalRevision mechanicalTechnicalRevision = new MechanicalTechnicalRevision(price, year, gasLevel);
         vehicles.get(index).addDocument(mechanicalTechnicalRevision);
@@ -225,6 +227,7 @@ public class Concessionare {
         for (int i = 0; i < vehicles.size(); i++) {
             out += "\nInformation vehicle: " + (i+1) + "\n";
             out+= vehicles.get(i).toString();
+            out += "Soat :" + vehicles.get(i).getSOAT();
         }
         return out;
     }*/

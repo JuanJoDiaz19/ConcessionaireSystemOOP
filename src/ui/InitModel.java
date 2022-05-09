@@ -19,15 +19,15 @@ public class InitModel {
         SOAT soat1 = new SOAT(5000, 2022, 1000);
         MechanicalTechnicalRevision mechanicalTechnicalRevision1 = new MechanicalTechnicalRevision(2000, 2016, 2);
         PropertyCard propertyCard1 = new PropertyCard(5000, 2013);
-        vehicle0.addDocument(soat1);
-        vehicle0.addDocument(mechanicalTechnicalRevision1);
-        vehicle0.addDocument(propertyCard1);
+        vehicle1.addDocument(soat1);
+        vehicle1.addDocument(mechanicalTechnicalRevision1);
+        vehicle1.addDocument(propertyCard1);
         vehicles.add(vehicle1);
 
         //Third vehicle
         Vehicle vehicle2 = new Motorcycle(1000, "Yamaha", "2015",1.5 , 1000, TypeVehicle.NEW, "ANA L56", 20, TypeMotorcycle.SCOOTER);
         MechanicalTechnicalRevision mechanicalTechnicalRevision2 = new MechanicalTechnicalRevision(2000, 2022, 2);
-        vehicle0.addDocument(mechanicalTechnicalRevision2);
+        vehicle2.addDocument(mechanicalTechnicalRevision2);
         vehicles.add(vehicle2);
 
         //Fourth vehicle
@@ -35,9 +35,9 @@ public class InitModel {
         SOAT soat3 = new SOAT(5000, 2022, 1000);
         MechanicalTechnicalRevision mechanicalTechnicalRevision3 = new MechanicalTechnicalRevision(2000, 2022, 2);
         PropertyCard propertyCard3 = new PropertyCard(5000, 2013);
-        vehicle0.addDocument(soat3);
-        vehicle0.addDocument(mechanicalTechnicalRevision3);
-        vehicle0.addDocument(propertyCard3);
+        vehicle3.addDocument(soat3);
+        vehicle3.addDocument(mechanicalTechnicalRevision3);
+        vehicle3.addDocument(propertyCard3);
         vehicles.add(vehicle3);
         return vehicles;
     }
