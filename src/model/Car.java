@@ -6,7 +6,7 @@ public abstract class Car extends Vehicle {
     private TypeCar typeCar;
 
     
-    public Car(double basePrice, String brand, String model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, TypeCar typeCar) {
+    public Car(double basePrice, String brand, int model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, TypeCar typeCar) {
         super(basePrice, brand, model, cylinderCapacity, mileage, typeVehicle, licensePlate);
         this.numberOfDoors = numberOfDoors;
         this.polarizedWindows = polarizedWindows;

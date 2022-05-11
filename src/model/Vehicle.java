@@ -4,7 +4,7 @@ public abstract class Vehicle {
     private double basePrice;
     private double salePrice;
     private String brand;
-    private String model;
+    private int model;
     private double cylinderCapacity;
     private double mileage;
     private String licensePlate;
@@ -12,7 +12,7 @@ public abstract class Vehicle {
     private Document[] documents;
 
     //Constructor when is a used car
-    public Vehicle(double basePrice, String brand, String model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate) {
+    public Vehicle(double basePrice, String brand, int model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate) {
         documents = new Document[3];
         this.basePrice = basePrice;
         //this.salePrice = calculateSalePrice();
@@ -78,5 +78,8 @@ public abstract class Vehicle {
     }
     protected Document getPropertyCard() {
         return documents[2];
+    }
+    protected int getModel() {
+        return model;
     }
 }

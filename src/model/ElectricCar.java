@@ -5,8 +5,8 @@ public class ElectricCar extends Car implements CalculateBatteryConsumption {
     private double batteryDuration;
     private double batteryConsumption;
     private TypeCharger typeCharger;
-
-    public ElectricCar(double basePrice, String brand, String model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, TypeCar typeCar,double batteryDuration, TypeCharger typeCharger) {
+    
+    public ElectricCar(double basePrice, String brand, int model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, TypeCar typeCar,double batteryDuration, TypeCharger typeCharger) {
         super(basePrice, brand, model, cylinderCapacity, mileage, typeVehicle, licensePlate, numberOfDoors, polarizedWindows, typeCar);
         this.batteryDuration = batteryDuration;
         this.typeCharger = typeCharger;

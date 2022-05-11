@@ -6,7 +6,7 @@ public class Motorcycle extends Vehicle implements CalculateGasolineConsumption 
     private TypeMotorcycle typeMotorcycle;
 
 
-    public Motorcycle(double basePrice, String brand, String model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, double capacityOfTheTank, TypeMotorcycle typeMotorcycle) {
+    public Motorcycle(double basePrice, String brand, int model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, double capacityOfTheTank, TypeMotorcycle typeMotorcycle) {
         super(basePrice, brand, model, cylinderCapacity, mileage, typeVehicle, licensePlate);    
         this.capacityOfTheTank = capacityOfTheTank;
         this.typeMotorcycle = typeMotorcycle;

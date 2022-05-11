@@ -1,6 +1,5 @@
 package ui;
 import java.util.Scanner;
-
 import model.Concessionare;
 
 public class Main {
@@ -56,9 +55,11 @@ public class Main {
             case 3: 
                 option3();   
                 break;
-            case 4:    
+            case 4:  
+                option4();  
                 break;
-            case 5:    
+            case 5:  
+                option5();  
                 break;
             case 6:    
                 break;
@@ -78,7 +79,8 @@ public class Main {
         System.out.println("Enter the brand of the vehicle: ");
         String brand = sc.nextLine();
         System.out.println("Enter the model of the vehicle: ");
-        String model = sc.nextLine();
+        int model = sc.nextInt();
+        sc.nextLine();
         System.out.println("Enter the cylinder capacity: ");
         double cylinderCapacity = sc.nextDouble();
         sc.nextLine();
@@ -253,4 +255,16 @@ public class Main {
                 break;
         }
     }
+
+    public void option4() {
+        System.out.println("Enter the id of the vehicle you want to search: ");
+        int id = sc.nextInt();
+        System.out.println(concessionare.showDocumentsFromVehicle(id));
+        
+    }
+
+    public void option5() {
+        System.out.println(concessionare.showParkingLot());
+    }
+
 }

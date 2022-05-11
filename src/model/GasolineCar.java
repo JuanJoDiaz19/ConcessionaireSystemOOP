@@ -6,7 +6,7 @@ public class GasolineCar extends Car{
     private TypeGasoline typeGasoline;
 
 
-    public GasolineCar(double basePrice, String brand, String model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, TypeCar typeCar, double capacityOfTheTank, TypeGasoline typeGasoline) {
+    public GasolineCar(double basePrice, String brand, int model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, TypeCar typeCar, double capacityOfTheTank, TypeGasoline typeGasoline) {
         super(basePrice, brand, model, cylinderCapacity, mileage, typeVehicle, licensePlate, numberOfDoors, polarizedWindows, typeCar);
         this.capacityOfTheTank = capacityOfTheTank;
         this.typeGasoline = typeGasoline;

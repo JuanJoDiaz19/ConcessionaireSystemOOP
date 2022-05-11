@@ -10,7 +10,7 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
     private TypeGasoline typeGasoline;
 
 
-    public HybridCar(double basePrice, String brand, String model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, TypeCar typeCar, double capacityOfTheTank,  double batteryDuration, TypeCharger typeCharger, TypeGasoline typeGasoline) {
+    public HybridCar(double basePrice, String brand, int model, double cylinderCapacity, double mileage,TypeVehicle typeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, TypeCar typeCar, double capacityOfTheTank,  double batteryDuration, TypeCharger typeCharger, TypeGasoline typeGasoline) {
         super(basePrice, brand, model, cylinderCapacity, mileage, typeVehicle, licensePlate, numberOfDoors, polarizedWindows, typeCar);
         this.capacityOfTheTank = capacityOfTheTank;
         this.batteryDuration = batteryDuration;

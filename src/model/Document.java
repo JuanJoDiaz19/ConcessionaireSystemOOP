@@ -14,6 +14,16 @@ public abstract class Document {
         this.year = year;
         generateConentDocument();
     }
+    public void showMatrix() {
+        String out = "";
+        for (int i = 0; i < image.length; i++) {
+            for (int j = 0; j < image[0].length; j++) {
+                out += image[i][j] + " ";
+            }
+            out += "\n";
+        }
+        System.out.println(out);
+    }
     public void generateConentDocument() {
         Random r = new Random();
         for (int i = 0; i < SIZE_MATRIX; i++) {
@@ -25,7 +35,15 @@ public abstract class Document {
     protected int getYear() {
         return year;
     }
-    public abstract int getCode();
 
+    @Override
+    public String toString() {
+        return "\nPrice: " + price + "\nYear: " + year + "\nCode: " + getCode();
+    }
+
+    public int[][] getImage() {
+        return image;
+    }
+    public abstract String getCode();
     
 }
