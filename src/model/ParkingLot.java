@@ -6,30 +6,32 @@ public class ParkingLot {
     private Vehicle[][] parking;
 
     public void addVehicleToParkingLot(Vehicle vehicle) {
-        if (vehicle.getModel() == 2014) {
-            int index = firstNullInColumn(0);
-            if (index != -1) {
-                parking[index][0] = vehicle;
-            }
-        } else if (vehicle.getModel() == 2013) {
-            int index = firstNullInColumn(1);
-            if (index != -1) {
-                parking[index][1] = vehicle;
-            }
-        } else if (vehicle.getModel() == 2012) {
-            int index = firstNullInColumn(2);
-            if (index != -1) {
-                parking[index][2] = vehicle;
-            }
-        }else if (vehicle.getModel() == 2011) {
-            int index = firstNullInColumn(3);
-            if (index != -1) {
-                parking[index][3] = vehicle;
-            }
-        }else if (vehicle.getModel() < 2011) {
-            int index = firstNullInColumn(4);
-            if (index != -1) {
-                parking[index][4] = vehicle;
+        if (vehicle.getTypeVehicle() == TypeVehicle.USED) {
+            if (vehicle.getModel() == 2014) {
+                int index = firstNullInColumn(0);
+                if (index != -1) {
+                    parking[index][0] = vehicle;
+                }
+            } else if (vehicle.getModel() == 2013) {
+                int index = firstNullInColumn(1);
+                if (index != -1) {
+                    parking[index][1] = vehicle;
+                }
+            } else if (vehicle.getModel() == 2012) {
+                int index = firstNullInColumn(2);
+                if (index != -1) {
+                    parking[index][2] = vehicle;
+                }
+            }else if (vehicle.getModel() == 2011) {
+                int index = firstNullInColumn(3);
+                if (index != -1) {
+                    parking[index][3] = vehicle;
+                }
+            }else if (vehicle.getModel() < 2011) {
+                int index = firstNullInColumn(4);
+                if (index != -1) {
+                    parking[index][4] = vehicle;
+                }
             }
         }
     }
