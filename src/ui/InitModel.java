@@ -25,7 +25,7 @@ public class InitModel {
         vehicles.add(vehicle1);
 
         //Third vehicle
-        Vehicle vehicle2 = new Motorcycle(1000, "Yamaha", 2010,1.5 , 1000, TypeVehicle.NEW, "ANA L56", 20, TypeMotorcycle.SCOOTER);
+        Vehicle vehicle2 = new Motorcycle(1000, "Yamaha", 2010,1.5 , 1000, TypeVehicle.USED, "ANA L56", 20, TypeMotorcycle.SCOOTER);
         MechanicalTechnicalRevision mechanicalTechnicalRevision2 = new MechanicalTechnicalRevision(2000, 2022, 2);
         vehicle2.addDocument(mechanicalTechnicalRevision2);
         vehicles.add(vehicle2);
@@ -39,6 +39,8 @@ public class InitModel {
         vehicle3.addDocument(mechanicalTechnicalRevision3);
         vehicle3.addDocument(propertyCard3);
         vehicles.add(vehicle3);
+
+        //Fourt
         return vehicles;
     }
 }

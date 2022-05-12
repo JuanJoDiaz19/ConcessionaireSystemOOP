@@ -61,7 +61,8 @@ public class Main {
             case 5:  
                 option5();  
                 break;
-            case 6:    
+            case 6:  
+                option6();  
                 break;
             default:
                 System.out.println("Good bye :) ..... \nThanks for using the program");
@@ -259,6 +260,7 @@ public class Main {
     public void option4() {
         System.out.println("Enter the id of the vehicle you want to search: ");
         int id = sc.nextInt();
+        sc.nextLine();
         System.out.println(concessionare.showDocumentsFromVehicle(id));
         
     }
@@ -266,6 +268,41 @@ public class Main {
     public void option5() {
         System.out.println("***** Parking lot of the concessionare *****\n");
         System.out.println(concessionare.showParkingLot());
+    }
+    
+    public void option6() {
+        System.out.println("For wich criterias you want to make the occupancy reports" + "\n1) List of vehicles (and their information) given a range of years" + "\n2) Data of the oldest and newest vehicle" + "\n3) Percentage of occupation of the parking lot");
+        int option = sc.nextInt();
+        sc.nextLine();
+        switch (option) {
+            case 1:
+                System.out.println("Enter the year in wich year you want to make the search: " + "\n1) 2014\n2) 2013\n3) 2012\n4) 2011\n5) 2011 >" );
+                int yearOfSearch = sc.nextInt();
+                sc.nextLine();
+                System.out.println(concessionare.showVehiclesInParkingLotByYear(yearOfSearch));;
+                break;
+            case 2:
+                System.out.println("Wich vehicle you want to search for 1) Newest 2) Oldest ?");
+                int searchOption = sc.nextInt();
+                sc.nextLine();
+                switch (searchOption) {
+                    case 1:
+                        System.out.println(concessionare.showDataNewestVehicle());
+                        break;
+                    case 2:
+                        System.out.println(concessionare.showDataOldestVehicle());
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 3:
+                System.out.println("The ocupation percentage of the parking lot is: " + concessionare.showOcupationPercentageParkingLot());
+                break;
+            default:
+                break;
+        }
+    
     }
 
 }

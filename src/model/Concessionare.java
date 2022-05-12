@@ -26,7 +26,7 @@ public class Concessionare {
                 typeVehicle =  TypeVehicle.NEW;
                 break;
             case 2:
-                typeVehicle =  TypeVehicle.NEW;
+                typeVehicle =  TypeVehicle.USED;
                 break;
             default:
                 typeVehicle = null;
@@ -69,7 +69,7 @@ public class Concessionare {
                 typeVehicle =  TypeVehicle.NEW;
                 break;
             case 2:
-                typeVehicle =  TypeVehicle.NEW;
+                typeVehicle =  TypeVehicle.USED;
                 break;
             default:
                 typeVehicle = null;
@@ -127,7 +127,7 @@ public class Concessionare {
                 typeVehicle =  TypeVehicle.NEW;
                 break;
             case 2:
-                typeVehicle =  TypeVehicle.NEW;
+                typeVehicle =  TypeVehicle.USED;
                 break;
             default:
                 typeVehicle = null;
@@ -173,7 +173,7 @@ public class Concessionare {
                 typeVehicle =  TypeVehicle.NEW;
                 break;
             case 2:
-                typeVehicle =  TypeVehicle.NEW;
+                typeVehicle =  TypeVehicle.USED;
                 break;
             default:
                 typeVehicle = null;
@@ -228,13 +228,13 @@ public class Concessionare {
     } 
 
     public String showInformationByTypeOfVehicle(int i ) {
-        String out = "\n";
+        String out = "";
         switch (i) {
             //Case of the electric car
             case 1:
                 for (int j = 0; j < vehicles.size(); j++) {
                     if (vehicles.get(j) instanceof ElectricCar) {
-                        out += "Vehicle Id: " + j + " \n" + vehicles.get(j).toString() +"\n" ;
+                        out += "\nVehicle Id: " + j + " \n" + vehicles.get(j).toString() +"\n" ;
                         ;
                     }
                 }
@@ -243,7 +243,7 @@ public class Concessionare {
             case 2:
                 for (int j = 0; j < vehicles.size(); j++) {
                     if (vehicles.get(j) instanceof HybridCar) {
-                        out += "Vehicle Id: " + j + " \n" +vehicles.get(j).toString();
+                        out += "\nVehicle Id: " + j + " \n" +vehicles.get(j).toString();
                     }
                 }
                 break;
@@ -251,7 +251,7 @@ public class Concessionare {
             case 3:  
                 for (int j = 0; j < vehicles.size(); j++) {
                     if (vehicles.get(j) instanceof GasolineCar) {
-                        out += "Vehicle Id: " + j + " \n" + vehicles.get(j).toString();
+                        out += "\nVehicle Id: " + j + " \n" + vehicles.get(j).toString();
                     }
                 }
                 break;
@@ -260,7 +260,7 @@ public class Concessionare {
             case 4:  
                 for (int j = 0; j < vehicles.size(); j++) {
                     if (vehicles.get(j) instanceof Motorcycle) {
-                        out += "Vehicle Id: " + j + " \n" +vehicles.get(j).toString();
+                        out += "\nVehicle Id: " + j + " \n" +vehicles.get(j).toString();
                     }
                 }
                 break;
@@ -387,7 +387,22 @@ public class Concessionare {
         return out;
     }
 
+    public String showVehiclesInParkingLotByYear(int year) {
+        return parkingLot.showParkingLotByYear(year);
+    }
+
+    public String showDataNewestVehicle() {
+        return parkingLot.showInformationNewestVehicle();
+    }
+
+    public String showDataOldestVehicle() {
+        return parkingLot.showInformationOldestVehicle();
+    }
     public String showParkingLot() {
         return parkingLot.showParkingLot();
+    }
+
+    public String showOcupationPercentageParkingLot() {
+        return parkingLot.getOcupationPercentageParkingLot() + "%";
     }
 }
