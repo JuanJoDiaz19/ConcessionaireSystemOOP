@@ -1,11 +1,18 @@
 package model;
 
 public class PropertyCard extends Document{
-
+    /**
+     * Constructor method of the class PropertyCard 
+     * @param price != null
+     * @param year != null
+     */
     public PropertyCard(double price, int year) {
         super(price, year);
     }
-
+    /**
+     * Method toString of the class PropertyCard
+     * @return String with all the information of the class
+     */
     @Override
     public String toString() {
         String out = "";
@@ -13,7 +20,10 @@ public class PropertyCard extends Document{
         out += super.toString();
         return out;
     }
-
+    /**
+     * Override method that gets the code of the image
+     * @return String with the code of the image
+     */
     @Override
     public String getCode() {
         String out = "";

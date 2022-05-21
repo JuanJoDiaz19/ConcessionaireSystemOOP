@@ -1,13 +1,22 @@
 package model;
 
 public class SOAT extends Document {
+    /**Coverage ammount of the soat */
     private double coverageAmmount;
-
+    /**
+     * Constructor method of the SOAT class
+     * @param price != null
+     * @param year != null
+     * @param coverageAmmount != null
+     */
     public SOAT(double price, int year, double coverageAmmount) {
         super(price, year);
         this.coverageAmmount = coverageAmmount;
     }
-
+    /**
+     * Method that gets the code of the image 
+     * @return String with the code of the SOAT
+     */
     @Override
     public String getCode() {
         String out = "";
@@ -19,6 +28,10 @@ public class SOAT extends Document {
         }
         return out;
     }
+    /**
+     * Method toString of the SOAT class
+     * @return String with all the information of the class
+     */
     @Override
     public String toString() {
         String out = "";

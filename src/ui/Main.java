@@ -3,11 +3,12 @@ import java.util.Scanner;
 import model.Concessionare;
 
 public class Main {
+    /**The object of the concessionare */
     private Concessionare concessionare;
+    /**Object of the scanner */
     private Scanner sc;
 
-    /*For entering the test cases: */
-
+    /*Constructor method for the preestablished vehicles*/
     public Main() {
         InitModel initModel = new InitModel();
         concessionare = new Concessionare(initModel.createVehicles());
@@ -18,7 +19,10 @@ public class Main {
         concessionare = new Concessionare();
         sc = new Scanner(System.in);
     }*/
-    
+    /**
+     * Main method of the proyect
+     * @param args 
+     */
     public static void main(String[] args) {
         Main mainObject = new Main();
         System.out.println("\n***** Welcome to the concessionare program *****");
@@ -29,7 +33,10 @@ public class Main {
             mainObject.excecuteOption(option);
         } while (option != 0);
     }
-
+    /**
+     * Method that shows the menu of the program
+     * @return int the option that the user has selected
+     */
     public int showMenu() {
         System.out.println("\nSelect one of the options:\n" +
                             "\n1) Register vehicle" + 
@@ -43,7 +50,10 @@ public class Main {
         sc.nextLine();
         return option;
     }
-
+    /**
+     * Method that executes the option that the user has entered
+     * @param option with the number of the option that the user has selected
+     */
     public void excecuteOption(int option){
         switch (option) {
             case 1:
@@ -69,7 +79,7 @@ public class Main {
                 break;
         }
     }
-
+    /**Method that executes the first option of the menu*/
     public void option1() {
         System.out.println("Wich type of vehicle you want to register? 1) Electric car 2) Hybrid car 3) Gasoline car 4) Motorcycle");
         int option = sc.nextInt();
@@ -122,6 +132,7 @@ public class Main {
                 sc.nextLine();
                 if (option == 1) {
                     int index = concessionare.addVehicle(basePrice, brand, model, cylinderCapacity, mileage, optionTypeVehicle, licensePlate, numberOfDoors, polarizedWindows, optionTypeCar, optionTypeCharger, batteryDuration);
+                   
                     if (optionTypeVehicle == 2) {
                         RegisterSoat(index);
                         RegisterTechicalMechanicalRevision(index);
@@ -129,6 +140,7 @@ public class Main {
                     } else if (optionTypeVehicle == 1) {
                         concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
                     }
+                    System.out.println("\n----- " +concessionare.VehicleInParkingLot(index) + " -----");
                 } else if (option == 2 ) {
                     System.out.println("Enter the capacity of the tank (galons): ");
                     double capacityOfTheTank = sc.nextDouble();
@@ -143,6 +155,7 @@ public class Main {
                     }else if (optionTypeVehicle == 1) {
                         concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
                     }
+                    System.out.println("\n----- " +concessionare.VehicleInParkingLot(index) + " -----");
                 } 
             } else if ( option == 3 ) {
                 System.out.println("Enter the capacity of the tank (galons): ");
@@ -152,7 +165,6 @@ public class Main {
                 int optionTypeGasoline = sc.nextInt();
                 sc.nextLine();
                 int index = concessionare.addVehicle(basePrice, brand, model, cylinderCapacity, mileage, optionTypeVehicle, licensePlate, numberOfDoors, polarizedWindows, optionTypeCar, capacityOfTheTank, optionTypeGasoline);
-                
                 if (optionTypeVehicle == 2) {
                     RegisterSoat(index);
                     RegisterTechicalMechanicalRevision(index);
@@ -160,6 +172,7 @@ public class Main {
                 } else if (optionTypeVehicle == 1) {
                     concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
                 }
+                System.out.println( "\n----- " +concessionare.VehicleInParkingLot(index) + " -----");
             } 
 
         } else if (option == 4) {
@@ -170,7 +183,6 @@ public class Main {
            System.out.println("Enter the type of motorcycle 1) Standard 2) Sport 3) Scooter 4) Cross");
            int optionTypeMotorcycle = sc.nextInt();
            int index = concessionare.addVehicle(basePrice, brand, model, cylinderCapacity, mileage, optionTypeVehicle, licensePlate, capacityOfTheTank, optionTypeMotorcycle);
-            
             if (optionTypeVehicle == 2) {
                 RegisterSoat(index);
                 RegisterTechicalMechanicalRevision(index);
@@ -178,9 +190,10 @@ public class Main {
             } else if (optionTypeVehicle == 1) {
                 concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
             }
+            System.out.println("\n----- " +concessionare.VehicleInParkingLot(index) + " -----");
         }
     }
-
+    /**Method that executes the option 2 of the menu */
     public void option2() {
         System.out.println("Enter the id of the vehicle you want to calculate the sale price: ");
         int index =sc.nextInt();
@@ -188,7 +201,10 @@ public class Main {
         System.out.println(concessionare.getSalePriceOfVehicle(index));
          
     }
-
+    /**
+     * Method that lets register the soat of a vehicle
+     * @param indexVehicle != null
+     */
     public void RegisterSoat(int indexVehicle) {
         System.out.println("\n***** Information of the SOAT *****\n");
         System.out.println("Enter the price of the soat");
@@ -202,6 +218,10 @@ public class Main {
         sc.nextLine();
         concessionare.addDocumentToVehicle(indexVehicle, price, coverageAmmount, year);
     }
+    /**
+     * Methid that lets register the technical mechanical revision of a vehicle
+     * @param indexOfVehicle != null
+     */
     public void RegisterTechicalMechanicalRevision(int indexOfVehicle) {
         System.out.println("\n***** Information of Mechanical Technical Revision *****\n");
         System.out.println("Enter the price of the mechanical technical revision");
@@ -215,7 +235,10 @@ public class Main {
         sc.nextLine();
         concessionare.addDocumentToVehicle(indexOfVehicle, price, year, gasLevel);
     }
-
+    /**
+     * Method that lets register the poperty card of a vehicle
+     * @param indexOfVehicle != null
+     */
     public void RegisterPropertyCard(int indexOfVehicle) {
         System.out.println("\n***** Information of the Property Card *****\n");
         System.out.println("Enter the price of the Property Card");
@@ -226,7 +249,7 @@ public class Main {
         sc.nextLine();
         concessionare.addDocumentToVehicle(indexOfVehicle, price, year);
     }
-
+    /**Method that lets execute the option 3 of the method */
     public void option3() { 
         //System.out.println(concessionare.showInformationVehicles());
     
@@ -256,7 +279,7 @@ public class Main {
                 break;
         }
     }
-
+    /**Method that executes the option 4 of the menu */
     public void option4() {
         System.out.println("Enter the id of the vehicle you want to search: ");
         int id = sc.nextInt();
@@ -264,12 +287,12 @@ public class Main {
         System.out.println(concessionare.showDocumentsFromVehicle(id));
         
     }
-
+    /**Mehtos that executes the option 5 of the menu */
     public void option5() {
         System.out.println("***** Parking lot of the concessionare *****\n");
         System.out.println(concessionare.showParkingLot());
     }
-    
+    /**Method that executes the option 6 of the menu */
     public void option6() {
         System.out.println("For wich criterias you want to make the occupancy reports" + "\n1) List of vehicles (and their information) given a range of years" + "\n2) Data of the oldest and newest vehicle" + "\n3) Percentage of occupation of the parking lot");
         int option = sc.nextInt();

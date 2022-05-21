@@ -1,12 +1,17 @@
 package model;
 
 public class HybridCar extends Car implements CalculateBatteryConsumption, CalculateGasolineConsumption{
-
+    /**Capacity of the tank of the Hybrid car */
     private double capacityOfTheTank;
+    /**Fuel consumption of the hybrid car */
     private double fuelConsumption;
+    /**Batery curation of the hybrid car */
     private double batteryDuration;
+    /**Battery consumption of the hybrid car */
     private double batteryConsumption;
+    /**Type of charger of the hybrid car (NORMAL, FAST) */
     private TypeCharger typeCharger;
+    /**Type of gasoline of the hybrid car (EXTRA, REGULAR, DIESEL) */
     private TypeGasoline typeGasoline;
 
 
@@ -19,7 +24,10 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
         batteryConsumption = calculateBatteryConsumption();
         fuelConsumption = calculateGasolineConsumption();
     }
-
+    /**
+     * Method that calculates the sale price of the hybrid car
+     * @return double the sale price of the hybird car
+     */
     @Override
     public double calculateSalePrice() {
         double price= super.getBasePrice() * 1.15;
@@ -32,7 +40,10 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
         }
         return price;
     }
-
+    /**
+     * Method toString of the hybird car 
+     * @return String with all the information of the hybrid car
+     */
     @Override
     public String toString() {
         String out = "\n***** Hybrid car *****\n\n";
@@ -54,11 +65,19 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
         out += "\n";
         return out;
     }
-    
+    /**
+     * Method that get the type of the gasoline 
+     * @return TypeGasoline of the hybrid car
+     */
     public TypeGasoline getTypeGasoline() {
         return typeGasoline;
     }
     
+    /**
+     * Method that calculates the battery consumption of the hybrid car 
+     * @return double with the battery consumption of the hybrid car 
+     */
+    @Override
     public double calculateBatteryConsumption() {
         double out = 0;
         if (typeCharger == TypeCharger.FAST) {
@@ -68,7 +87,11 @@ public class HybridCar extends Car implements CalculateBatteryConsumption, Calcu
         }
         return out;
     }
-
+    /**
+     * Method that calculates the gasoline consumption of the hybrid car 
+     * @return double with the gasoline consumption of the hybrid car 
+     */
+    @Override
     public double calculateGasolineConsumption() {
         return capacityOfTheTank *(super.getCylinderCapacity()/180);
     }

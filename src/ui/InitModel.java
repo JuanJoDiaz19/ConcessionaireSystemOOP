@@ -5,6 +5,10 @@ import java.util.ArrayList;
 import model.*;
 
 public class InitModel {
+    /**
+     * Method that creates the preestablished vehicles in the model 
+     * @return ArrayList<Vehicle> with the vehicles that were created in the method
+     */
     public ArrayList<Vehicle> createVehicles() {
         ArrayList<Vehicle> vehicles = new ArrayList<Vehicle>();
 

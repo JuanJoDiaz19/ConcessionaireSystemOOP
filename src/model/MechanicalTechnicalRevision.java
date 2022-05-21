@@ -1,14 +1,22 @@
 package model;
 
 public class MechanicalTechnicalRevision extends Document {
-
+    /**Gas level of the Mechanical technical revision */
     private double gasLevel;
 
-
+    /**
+     * Constructor method the class Mechanical technical revision
+     * @param price != null
+     * @param year != null
+     * @param gasLevel != null
+     */
     public MechanicalTechnicalRevision(double price, int year, double gasLevel) {
         super(price, year);
         this.gasLevel = gasLevel;
     }
+    /**
+     * Method that shows the matrix of the image of the class
+     */
     public void showMatrix() {
         String out = "";
         for (int i = 0; i < super.getImage().length; i++) {
@@ -19,6 +27,10 @@ public class MechanicalTechnicalRevision extends Document {
         }
         System.out.println(out);
     }
+    /**
+     * Method toString of the Mechanical Technical Revision
+     * @return String with all the information of the class
+     */
     @Override
     public String toString() {
         String out = "";
@@ -27,6 +39,10 @@ public class MechanicalTechnicalRevision extends Document {
         return out;
 
     }
+    /**
+     * Override method that gets the code of the image 
+     * @return String with all the information of the class
+     */
     @Override
     public String getCode() {
         String out = "";

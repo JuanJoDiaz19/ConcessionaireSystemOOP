@@ -2,14 +2,20 @@ package model;
 import java.util.ArrayList;
 
 public class Concessionare {
+    /**Arraylist of vehicles that stores all the vehicle of the concessionare */
     private ArrayList<Vehicle> vehicles;
+    /**Object of ParkingLot in the class */
     private ParkingLot parkingLot;
 
+    /**Constructor method of the class Concessionare with out the preestablished vehicles */
     public Concessionare() {
         vehicles = new ArrayList<Vehicle>();
         parkingLot = new ParkingLot();
     }
-
+    /**
+     * Constructor method of the class Concessionare that receives the preestablished cases of the vehicles 
+     * @param vehicles != null
+     */
     public Concessionare(ArrayList<Vehicle> vehicles){
         this.vehicles = vehicles;
         parkingLot = new ParkingLot();
@@ -18,7 +24,22 @@ public class Concessionare {
         }
     }
 
-    /**This is the method for adding an electric car  */
+    /**
+     * Method to add an electric car in the arraylist of vehicles
+     * @param basePrice != null
+     * @param brand != null
+     * @param model != null
+     * @param cylinderCapacity != null
+     * @param mileage != null
+     * @param optionTypeVehicle != null
+     * @param licensePlate != null
+     * @param numberOfDoors != null
+     * @param polarizedWindows != null
+     * @param optionTypeCar != null
+     * @param optionTypeCharger != null
+     * @param batteryDuration != null
+     * @return int of the index in the arraylist of the vehicle that was created
+     */
     public int addVehicle(double basePrice, String brand, int model, double cylinderCapacity, double mileage, int optionTypeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, int optionTypeCar, int optionTypeCharger, double batteryDuration) {
         TypeVehicle typeVehicle;
         switch (optionTypeVehicle) {
@@ -62,6 +83,24 @@ public class Concessionare {
         return vehicles.indexOf(electricCar);
     }
     /**This is the method for adding an hybrid car  */
+    /**
+     * Method to add an hybrid car to the arraylist of vehicles
+     * @param basePrice != null
+     * @param brand != null
+     * @param model != null
+     * @param cylinderCapacity != null
+     * @param mileage != null
+     * @param optionTypeVehicle != null
+     * @param licensePlate != null
+     * @param numberOfDoors != null
+     * @param polarizedWindows != null
+     * @param optionTypeCar != null
+     * @param capacityOfTheTank != null
+     * @param batteryDuration != null
+     * @param optionTypeCharger != null
+     * @param optionTypeGasoline != null
+     * @return int of the index in the arraylist of the vehicle that was created
+     */
     public int addVehicle(double basePrice, String brand, int model, double cylinderCapacity, double mileage, int optionTypeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, int optionTypeCar, double capacityOfTheTank, double batteryDuration, int optionTypeCharger, int optionTypeGasoline){
         TypeVehicle typeVehicle;
         switch (optionTypeVehicle) {
@@ -120,6 +159,22 @@ public class Concessionare {
         return vehicles.indexOf(hybridCar);
     }
     /**This is the method for adding a gas car  */
+    /**
+     * Method to add a gas car in the arraylist of vehicles
+     * @param basePrice != null
+     * @param brand != null
+     * @param model != null
+     * @param cylinderCapacity != null
+     * @param mileage != null
+     * @param optionTypeVehicle != null
+     * @param licensePlate != null
+     * @param numberOfDoors != null
+     * @param polarizedWindows != null
+     * @param optionTypeCar != null
+     * @param capacityOfTheTank != null
+     * @param optionTypeGasoline != null
+     * @return int of the index in the arraylist of the vehicle that was created
+     */
     public int addVehicle(double basePrice, String brand, int model, double cylinderCapacity, double mileage,int optionTypeVehicle, String licensePlate, int numberOfDoors, boolean polarizedWindows, int optionTypeCar, double capacityOfTheTank, int optionTypeGasoline) {
         TypeVehicle typeVehicle;
         switch (optionTypeVehicle) {
@@ -165,7 +220,19 @@ public class Concessionare {
         parkingLot.addVehicleToParkingLot(gasolineCar);
         return vehicles.indexOf(gasolineCar);
     }
-    /**This is the method for adding a motorcycle  */
+    /**
+     * Method to add a motorcycle to the array list of vehicles
+     * @param basePrice != null
+     * @param brand != null
+     * @param model != null
+     * @param cylinderCapacity != null
+     * @param mileage != null
+     * @param optionTypeVehicle != null
+     * @param licensePlate != null
+     * @param capacityOfTheTank != null
+     * @param optionTypeMotorcycle != null
+     * @return int of the index in the arraylist of the vehicle that was created
+     */
     public int addVehicle(double basePrice, String brand, int model, double cylinderCapacity, double mileage, int optionTypeVehicle, String licensePlate, double capacityOfTheTank, int optionTypeMotorcycle) {
         TypeVehicle typeVehicle;
         switch (optionTypeVehicle) {
@@ -202,21 +269,43 @@ public class Concessionare {
         parkingLot.addVehicleToParkingLot(motorcycle);
         return vehicles.indexOf(motorcycle);        
     }
-    
+     /**
+      * Method that adds a document of type soat to a vehicle
+      * @param index != null
+      * @param price != null
+      * @param coverageAmmount != null
+      * @param year != null
+      */
     public void addDocumentToVehicle(int index, double price, double coverageAmmount, int year) {
         SOAT soat = new SOAT(price, year, coverageAmmount);
         vehicles.get(index).addDocument(soat);    
     }
- 
+    /**
+     * Method that adds a document of type mechanical technical revision to a vehicle
+     * @param index != null
+     * @param price != null
+     * @param year != null
+     * @param gasLevel != null
+     */
     public void addDocumentToVehicle(int index, double price, int year, double gasLevel) {
         MechanicalTechnicalRevision mechanicalTechnicalRevision = new MechanicalTechnicalRevision(price, year, gasLevel);
         vehicles.get(index).addDocument(mechanicalTechnicalRevision);
     }
+    /**
+     * Method that adds a document of type property card to a vehicle
+     * @param index != null
+     * @param price != null
+     * @param year != null
+     */
     public void addDocumentToVehicle(int index, double price, int year) {
         PropertyCard propertyCard = new PropertyCard(price, year);
         vehicles.get(index).addDocument(propertyCard);
     }
-
+    /**
+     * Method that returns a string with the information of the sale price of a vehicle
+     * @param index != null, index of the vehicle to search 
+     * @return String with the status of the sale price
+     */
     public String getSalePriceOfVehicle(int index) {
         String out = "";
         if (index < vehicles.size()) {
@@ -226,7 +315,11 @@ public class Concessionare {
         }
         return out;
     } 
-
+    /**
+     * Method that returns an String with the information of vehicles with a certain instance
+     * @param i int, option of the type of vehicle to search
+     * @return String with all the information of the vehicles in order to the type entered
+     */
     public String showInformationByTypeOfVehicle(int i ) {
         String out = "";
         switch (i) {
@@ -271,7 +364,11 @@ public class Concessionare {
         }
         return out;
     }
-
+    /**
+     * Method that shows the information of the vehicles in order to their fuel type 
+     * @param i != null, option of the type of fuel to search
+     * @return String with all the information of the vehicles in order to the type of fuel entered
+     */
     public String showInformationTypeOfFuel(int i) {
         String out = "\n";
         for (int j = 0; j < vehicles.size(); j++) {
@@ -333,7 +430,11 @@ public class Concessionare {
         return out;
 
     }
-
+    /**
+     * Method that shows the information of the vehicles in order if they are new or used
+     * @param i != null, option of the type of the type of vehicle to search
+     * @return String with all the information of the vehicles in order to the type car entered
+     */
     public String showInformationUsedOrNew(int i) {
         String out = "\n";
         switch (i) {
@@ -359,7 +460,11 @@ public class Concessionare {
         }
         return out;
     }
-
+    /**
+     * Method that shows the information of all documents in a vehicle
+     * @param index != null
+     * @return String with the information of the ducuments in the method
+     */
     public String showDocumentsFromVehicle(int index) {
         String out = "";
         if (index <= vehicles.size()) {
@@ -386,22 +491,47 @@ public class Concessionare {
         }
         return out;
     }
-
+    /**
+     * Method that executes the method isVehicleInParkingLot() of the parkinglot 
+     * @param index of the vehicle to add to the parking lot,  != null
+     * @return String The state of the vehicle in the parking lot
+     */
+    public String VehicleInParkingLot(int index) {
+        return parkingLot.isVehicleInParkingLot(vehicles.get(index));
+    }
+    /**
+     * Method that executes the method showParkingLotByYear() of the Parkinglot
+     * @param year year of search, != null
+     * @return String with all the information of the vehicles of that year in the parking lot 
+     */
     public String showVehiclesInParkingLotByYear(int year) {
         return parkingLot.showParkingLotByYear(year);
     }
-
+    /**
+     * Method that executes the method shoeInformationNewestVehicle() of the parking lot
+     * @return String with all the information of the newest vehicle in the parking lot 
+     */
     public String showDataNewestVehicle() {
         return parkingLot.showInformationNewestVehicle();
     }
-
+    /**
+     * Method that executes the method showInformationOldestVehicle of the parking lot 
+     * @return String with all the information of the oldest vehicle in the parking lot  
+     */
     public String showDataOldestVehicle() {
         return parkingLot.showInformationOldestVehicle();
     }
+    /**
+     * Method that executes the method showParkingLot() of the ParkingLot
+     * @return String with the drawing of the parking lot
+     */
     public String showParkingLot() {
         return parkingLot.showParkingLot();
     }
-
+    /**
+     * Method that executes the mehtod getOcupationPercentageParkingLot() of the parking lot
+     * @return String with the ocupation percentage of the parking lot
+     */
     public String showOcupationPercentageParkingLot() {
         return parkingLot.getOcupationPercentageParkingLot() + "%";
     }
