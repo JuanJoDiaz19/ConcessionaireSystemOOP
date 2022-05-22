@@ -52,7 +52,7 @@ public abstract class Document {
     }
     /**
      * Method that gets the year of the document
-     * @return
+     * @return int with the year
      */
     protected int getYear() {
         return year;
