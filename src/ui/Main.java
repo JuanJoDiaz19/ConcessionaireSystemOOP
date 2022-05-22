@@ -145,7 +145,7 @@ public class Main {
                     } else if (optionTypeVehicle == 1) {
                         concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
                     }
-                    System.out.println("\n----- " +concessionare.VehicleInParkingLot(index) + " -----");
+                    System.out.println("\n----- " +concessionare.vehicleInParkingLot(index) + " -----");
                 } else if (option == 2 ) {
                     System.out.println("Enter the capacity of the tank (galons): ");
                     double capacityOfTheTank = sc.nextDouble();
@@ -160,7 +160,7 @@ public class Main {
                     }else if (optionTypeVehicle == 1) {
                         concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
                     }
-                    System.out.println("\n----- " +concessionare.VehicleInParkingLot(index) + " -----");
+                    System.out.println("\n----- " +concessionare.vehicleInParkingLot(index) + " -----");
                 } 
             } else if ( option == 3 ) {
                 System.out.println("Enter the capacity of the tank (galons): ");
@@ -177,7 +177,7 @@ public class Main {
                 } else if (optionTypeVehicle == 1) {
                     concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
                 }
-                System.out.println( "\n----- " +concessionare.VehicleInParkingLot(index) + " -----");
+                System.out.println( "\n----- " +concessionare.vehicleInParkingLot(index) + " -----");
             } 
 
         } else if (option == 4) {
@@ -195,7 +195,7 @@ public class Main {
             } else if (optionTypeVehicle == 1) {
                 concessionare.addDocumentToVehicle(index, 0.0, 2022, 0.0);
             }
-            System.out.println("\n----- " +concessionare.VehicleInParkingLot(index) + " -----");
+            System.out.println("\n----- " +concessionare.vehicleInParkingLot(index) + " -----");
         }
     }
     /**Method that executes the option 2 of the menu */
