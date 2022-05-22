@@ -1,5 +1,10 @@
 package model;
+//To generate javadoc: javadoc src/model/HybridCar.java -d doc/API/
 
+/** Class of the Hybrid car 
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class HybridCar extends Car implements CalculateBatteryConsumption, CalculateGasolineConsumption{
     /**Capacity of the tank of the Hybrid car */
     private double capacityOfTheTank;

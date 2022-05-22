@@ -1,5 +1,11 @@
 package model;
 
+//To generate javadoc: javadoc src/model/ParkingLot.java -d doc/API/
+
+/** Parking lot class
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class ParkingLot {
     /**Constant of the number of rows of the ParkingLot */
     private static final int ROW = 10;

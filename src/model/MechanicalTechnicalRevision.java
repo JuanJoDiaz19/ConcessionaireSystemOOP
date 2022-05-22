@@ -1,5 +1,10 @@
 package model;
+//To generate javadoc: javadoc src/model/ParkingLot.java -d doc/API/
 
+/** Parking lot class
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class MechanicalTechnicalRevision extends Document {
     /**Gas level of the Mechanical technical revision */
     private double gasLevel;

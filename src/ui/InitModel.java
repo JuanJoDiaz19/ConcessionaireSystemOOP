@@ -3,7 +3,12 @@ package ui;
 import java.util.ArrayList;
 
 import model.*;
+//To generate javadoc: javadoc src/model/InitModel.java -d doc/API/
 
+/** Class that creates the basic cases of the model
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class InitModel {
     /**
      * Method that creates the preestablished vehicles in the model 

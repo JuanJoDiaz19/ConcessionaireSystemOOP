@@ -1,5 +1,10 @@
 package model;
+//To generate javadoc: javadoc src/model/GasolineCAr.java -d doc/API/
 
+/** Class of the gasoline car
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class GasolineCar extends Car{
     /**Capacity of the tank of the gasoline car */
     private double capacityOfTheTank;

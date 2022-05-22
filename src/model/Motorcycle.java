@@ -1,5 +1,10 @@
 package model;
+//To generate javadoc: javadoc src/model/Motorcycle.java -d doc/API/
 
+/** Class of the motorcycle
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class Motorcycle extends Vehicle implements CalculateGasolineConsumption {
     /**Capacity of the tank of the motorcycle*/
     private double capacityOfTheTank;

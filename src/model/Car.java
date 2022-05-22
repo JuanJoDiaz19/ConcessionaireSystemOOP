@@ -1,5 +1,10 @@
 package model;
+//To generate javadoc: javadoc src/model/Car.java -d doc/API/
 
+/** Class of the car (abstract)
+ * @author JuanJoseDiaz
+ * 
+ * */
 public abstract class Car extends Vehicle {
     /**Number of doors of the car */
     private int numberOfDoors;

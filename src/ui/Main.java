@@ -1,7 +1,12 @@
 package ui;
 import java.util.Scanner;
 import model.Concessionare;
+//To generate javadoc: javadoc src/model/Main.java -d doc/API/
 
+/** Main class of the project
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class Main {
     /**The object of the concessionare */
     private Concessionare concessionare;

@@ -1,5 +1,10 @@
 package model;
+//To generate javadoc: javadoc src/model/SOAT.java -d doc/API/
 
+/** Class of the SOAT
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class SOAT extends Document {
     /**Coverage ammount of the soat */
     private double coverageAmmount;

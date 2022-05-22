@@ -1,5 +1,10 @@
 package model;
+//To generate javadoc: javadoc src/model/Vehicle.java -d doc/API/
 
+/** Class of the vehicle
+ * @author JuanJoseDiaz
+ * 
+ * */
 public abstract class Vehicle {
     /**Base price of the vehicle */
     private double basePrice;

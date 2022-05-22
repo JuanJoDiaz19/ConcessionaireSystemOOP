@@ -1,6 +1,11 @@
 package model;
 import java.util.ArrayList;
+//To generate javadoc: javadoc src/model/Concessionare.java -d doc/API/
 
+/** Class of the concessionare
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class Concessionare {
     /**Arraylist of vehicles that stores all the vehicle of the concessionare */
     private ArrayList<Vehicle> vehicles;

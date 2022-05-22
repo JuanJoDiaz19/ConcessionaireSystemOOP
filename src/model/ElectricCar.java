@@ -1,6 +1,10 @@
 package model;
+//To generate javadoc: javadoc src/model/ElectricCar.java -d doc/API/
 
-
+/** Class of the electric car
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class ElectricCar extends Car implements CalculateBatteryConsumption {
     /**Battery duration of the Electric car */
     private double batteryDuration;

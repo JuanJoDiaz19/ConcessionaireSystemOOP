@@ -1,6 +1,11 @@
 package model;
 import java.util.Random;
+//To generate javadoc: javadoc src/model/Document.java -d doc/API/
 
+/** Class of the document 
+ * @author JuanJoseDiaz
+ * 
+ * */
 public abstract class Document {
     /**Constant of the number of cells of the matrix */
     public static final int SIZE_MATRIX = 5;

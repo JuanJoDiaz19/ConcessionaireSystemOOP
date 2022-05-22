@@ -1,5 +1,10 @@
 package model;
+//To generate javadoc: javadoc src/model/PropertyCard.java -d doc/API/
 
+/** Class of the property card
+ * @author JuanJoseDiaz
+ * 
+ * */
 public class PropertyCard extends Document{
     /**
      * Constructor method of the class PropertyCard 
