@@ -501,7 +501,7 @@ public class Concessionare {
      * @param index of the vehicle to add to the parking lot,  != null
      * @return String The state of the vehicle in the parking lot
      */
-    public String VehicleInParkingLot(int index) {
+    public String vehicleInParkingLot(int index) {
         return parkingLot.isVehicleInParkingLot(vehicles.get(index));
     }
     /**
